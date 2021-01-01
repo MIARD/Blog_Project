@@ -5,4 +5,4 @@ Django, React, Redux
 
 Discriptiton:
 -------------
-[git-ling](https://github.com/MIARD/My_Blog_Project)
+[git-link](https://github.com/MIARD/My_Blog_Project)
