@@ -16,7 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = Path.joinpath(BASE_DIR, 'templates')
 STATIC_DIR = Path.joinpath(BASE_DIR, 'static')
-MEDIA_DIR = Path.joinpath(BASE_DIR, 'meida')
+MEDIA_DIR = Path.joinpath(BASE_DIR, 'media')
 
 # import os
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.aboslute(__file__)))
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'App_Blog',
     'App_Login',
     'crispy_forms',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 # bootstrap, bootstrap3, bootstrap4, uni-forms
