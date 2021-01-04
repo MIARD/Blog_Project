@@ -27,6 +27,8 @@
               @{{user.username}}
             </a>
              <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+               <a class = "dropdown-item" href = "{% url 'App_Blog:create_blog' %}">Write Blog</a>
+               <hr>
                <a class = "dropdown-item" href = "{% url 'App_Login:profile' %}">Your Profile</a>
                <a class="dropdown-item" href="{% url 'App_Login:logout' %}">Logout</a>
              </div>
