@@ -11,6 +11,9 @@ import uuid
 # def blog_list(request):
 #     return render(request, 'App_Blog/blog_list.html',context = {})
 
+class MyBlogs(LoginRequiredMixin, TemplateView):
+    template_name = 'App_Blog/my_blogs.html'
+
 class CreateBlog(LoginRequiredMixin, CreateView):
         model = Blog
         template_name = 'App_Blog/create_blog.html'
@@ -67,3 +70,15 @@ def unliked(request, pk):
     already_liked = Likes.objects.filter(blog=blog, user=user)
     already_liked.delete()
     return HttpResponseRedirect(reverse('App_Blog:blog_details',kwargs={'slug':blog.slug}))
+
+class UpdateBlog(LoginRequiredMixin, UpdateView):
+    model = Blog
+    fields = ('blog_title', 'blog_content','blog_image')
+    template_name = 'App_Blog/edit_blog.html'
+    def get_success_url(self, **kwargs):
+        return reverse_lazy('App_Blog:blog_details', kwargs={'slug':self.object.slug})
+
+class DeleteBlog(LoginRequiredMixin, DeleteView):
+    model = Blog
+    success_url = reverse_lazy('App_Blog:my_blogs')
+    template_name = 'App_Blog/edit_blog.html'
